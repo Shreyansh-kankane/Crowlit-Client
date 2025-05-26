@@ -1,4 +1,4 @@
-import { IoIosSend, IoIosSwitch } from "react-icons/io";
+import { IoIosSend } from "react-icons/io";
 import { useRef } from "react";
 
 import { useSelector } from "react-redux";

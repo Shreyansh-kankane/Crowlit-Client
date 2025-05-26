@@ -18,7 +18,7 @@ export const useMessage = ()=>{
     const [loading,setLoading] = useState(false);
     const [isSwitchToAI, setSwitchToAI] = useState(false);
     const [ticketId, setTicketId] = useState<number | null>(null);
-    const [latestUserMessageId, setLatestUserMessageId] = useState<Number | null>(0);
+    const [, setLatestUserMessageId] = useState<Number | null>(0);
     const [lastMessageId, setLastMessageId] = useState<Number | null>(0);
 
 
@@ -73,7 +73,7 @@ useEffect(() => {
     lastMessageIdRef.current = lastMessageId;
 }, [lastMessageId]);
 
-const intervalId = setInterval(() => {
+ setInterval(() => {
     if (ticketId != null) {
         console.log("Fetching latest messages for ticketId:", ticketId);
         axios.get(`${import.meta.env.VITE_AI_BACKEND_URI}/chat/latest?support_ticket_id=${ticketId}&last_chat_id=${lastMessageIdRef.current}`)
@@ -167,7 +167,7 @@ const intervalId = setInterval(() => {
     }, []);
 
 
-    const switchToAIAgent = useCallback(async (message: ChatMessage, sessionId: number)=>{
+    const switchToAIAgent = useCallback(async ( sessionId: number)=>{
         setMessages((prev) => [
             ...prev,
             {
