@@ -10,7 +10,7 @@ function ChatMessages({messages, loading, fetchNodes, addMessageInChat, switchTo
     loading: boolean;
     fetchNodes: (parentId?: string) => void;
     addMessageInChat: (message: ChatMessage) => void;
-    switchToAIAgent: (message: ChatMessage, sessionId: number)=> void;
+    switchToAIAgent: (sessionId: number)=> void;
     sessionId: number;
 }
 ) {
@@ -41,7 +41,7 @@ function ChatMessages({messages, loading, fetchNodes, addMessageInChat, switchTo
             });
             fetchNodes(message.id);
         }else if(message.switchToAI){
-            switchToAIAgent(message,sessionId);
+            switchToAIAgent(sessionId);
         }
     }
     
