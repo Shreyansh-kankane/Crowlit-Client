@@ -1,7 +1,6 @@
 'use client'
 import { useSelector } from "react-redux";
 
-import { useState, useEffect } from "react";
 
 import {ChatMessage} from "../../../types/d";
 
