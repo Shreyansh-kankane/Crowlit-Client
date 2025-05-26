@@ -1,14 +1,15 @@
-import { IoIosSend } from "react-icons/io";
+import { IoIosSend, IoIosSwitch } from "react-icons/io";
 import { useRef } from "react";
 
 import { useSelector } from "react-redux";
 
-function InputMessage({addMessage}:{
-    addMessage: (message: {
+function InputMessage({addMessage}:{addMessage: 
+    (message: {
         text: string;
         sender: "user" | "assistant"
-        sessionId: string;
-    }) => void;
+        sessionId: number;
+    }
+) => void;
 }) {
 
     const inputRef = useRef<HTMLInputElement>(null);
@@ -21,8 +22,9 @@ function InputMessage({addMessage}:{
             addMessage({
                 text: message,
                 sender: "user",
-                sessionId: sessionId,
-            });
+                sessionId: sessionId
+            }
+        );
             if(inputRef.current) {
                 inputRef.current.value = ""; // Clear the input field after sending the message
                 inputRef.current.focus(); // Keep the focus on the input field

@@ -5,18 +5,18 @@ import InputMessage from "../components/chatbot/InputMessage";
 import { useMessage } from "../hooks/useMessage";
 
 
-function Chatbot() {
+function Chatbot({sessionId}:{sessionId: number}) {
 
-  const {messages, addMessage, loading} = useMessage();
-
+  
+  const {messages, addMessage, loading, fetchNodes, addMessageInChat, switchToAIAgent } = useMessage();
   return (
       <div className="relative w-96 z-50">
           <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 opacity-75 blur-xl animate-pulse"/>
           <div className="relative rounded-xl border border-white/20 bg-black/40 backdrop-blur-xl p-1 shadow-2xl">
             <div className="rounded-lg bg-black/60 p-4">
               <ChatHeader />
-              <ChatMessages messages={messages} loading={loading} />
-              <InputMessage addMessage={addMessage} />
+              <ChatMessages messages={messages} loading={loading} fetchNodes={fetchNodes} addMessageInChat={addMessageInChat} switchToAIAgent={switchToAIAgent} sessionId={sessionId}/>
+              <InputMessage addMessage={addMessage}/>
             </div>
           </div>
 

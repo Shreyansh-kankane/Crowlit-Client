@@ -85,7 +85,7 @@ function App() {
     <>
     <div className='fixed bottom-0 right-0 m-4 shadow-lg rounded-lg z-[1000]'>
       {
-        widgetViewState === WIDGETSCREENS.chatOpen && <Chatbot />
+        widgetViewState === WIDGETSCREENS.chatOpen && <Chatbot sessionId={sessionId}/>
       } 
       {
         widgetViewState === WIDGETSCREENS.chatClose && <ClosedChat />
